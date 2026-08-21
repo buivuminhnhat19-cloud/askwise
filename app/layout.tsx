@@ -16,8 +16,23 @@ export const metadata: Metadata = {
   title: "AskWise — Ask Better. Learn Better.",
   description:
     "AskWise helps students learn how to communicate with AI effectively.",
-};
 
+  openGraph: {
+    title: "AskWise — Ask Better. Learn Better.",
+    description:
+      "Learn how to communicate with AI effectively instead of simply asking AI for answers.",
+    url: "https://askwise-delta.vercel.app",
+    siteName: "AskWise",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "AskWise — Ask Better. Learn Better.",
+    description:
+      "Learn how to communicate with AI effectively.",
+  },
+};
 export default function RootLayout({
   children,
 }: Readonly<{
