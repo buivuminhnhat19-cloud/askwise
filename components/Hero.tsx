@@ -33,10 +33,12 @@ export default function Hero() {
         {/* Buttons */}
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           
-          <button className="rounded-full bg-slate-950 px-7 py-4 font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-800">
-            Try AskWise →
-          </button>
-
+        <a
+  href="/coach"
+  className="rounded-full bg-slate-950 px-7 py-4 font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-800"
+>
+  Try AskWise →
+</a>
           <a
             href="#how-it-works"
             className="rounded-full border border-slate-200 bg-white px-7 py-4 font-semibold text-slate-700 transition hover:bg-slate-50"
