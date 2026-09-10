@@ -138,3 +138,32 @@ export function analyzePrompt(prompt: string): PromptAnalysis {
     improvements,
   };
 }
+export type PromptBuilderData = {
+  level: string;
+  goal: string;
+  responseStyle: string;
+  learningStyle: string;
+};
+
+export function buildImprovedPrompt(
+  originalPrompt: string,
+  data: PromptBuilderData
+): string {
+  const parts = [
+    originalPrompt.trim(),
+    data.level
+      ? `I am ${data.level}.`
+      : "",
+    data.goal
+      ? `My goal is ${data.goal}.`
+      : "",
+    data.responseStyle
+      ? `Please ${data.responseStyle}.`
+      : "",
+    data.learningStyle
+      ? `Help me learn by ${data.learningStyle}.`
+      : "",
+  ].filter(Boolean);
+
+  return parts.join(" ");
+}

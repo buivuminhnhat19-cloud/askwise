@@ -1,31 +1,12 @@
-const steps = [
-  {
-    number: "01",
-    title: "Ask",
-    description:
-      "Tell AskWise what you are trying to learn or accomplish.",
-  },
-  {
-    number: "02",
-    title: "Improve",
-    description:
-      "Discover what is missing from your prompt and learn why it matters.",
-  },
-  {
-    number: "03",
-    title: "Learn",
-    description:
-      "Use the improved prompt with your preferred AI assistant.",
-  },
-  {
-    number: "04",
-    title: "Think",
-    description:
-      "Understand, verify, and think critically about the AI response.",
-  },
-];
+"use client";
+
+import { useLanguage } from "../lib/i18n/language-context";
+
+const stepNumbers = ["01", "02", "03", "04"];
 
 export default function HowItWorks() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="how-it-works"
@@ -36,40 +17,61 @@ export default function HowItWorks() {
         <div className="mx-auto max-w-2xl text-center">
 
           <p className="text-sm font-bold uppercase tracking-widest text-indigo-600">
-            How it works
+            {t.howItWorks}
           </p>
 
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            From a simple question to a better learning experience.
+            {t.howItWorksTitle}
           </h2>
 
           <p className="mt-5 text-lg leading-8 text-slate-600">
-            AskWise teaches you what makes a good AI prompt instead of
-            simply generating one for you.
+            {t.howItWorksDescription}
           </p>
 
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-4">
 
-          {steps.map((step) => (
-            <div
-              key={step.number}
-              className="rounded-3xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-xl"
-            >
-              <span className="text-sm font-bold text-indigo-600">
-                {step.number}
-              </span>
+          {stepNumbers.map((number, index) => {
+  const stepData = [
+    {
+      title: t.stepAsk,
+      description: t.stepAskDescription,
+    },
+    {
+      title: t.stepImprove,
+      description: t.stepImproveDescription,
+    },
+    {
+      title: t.stepLearn,
+      description: t.stepLearnDescription,
+    },
+    {
+      title: t.stepThink,
+      description: t.stepThinkDescription,
+    },
+  ][index];
 
-              <h3 className="mt-5 text-xl font-bold">
-                {step.title}
-              </h3>
+  return (
+    <div
+      key={number}
+      className="rounded-3xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:shadow-xl"
+    >
+      <span className="text-sm font-bold text-indigo-600">
+        {number}
+      </span>
 
-              <p className="mt-3 leading-7 text-slate-600">
-                {step.description}
-              </p>
-            </div>
-          ))}
+      <h3 className="mt-5 text-xl font-bold">
+        {stepData.title}
+      </h3>
+
+      <p className="mt-3 leading-7 text-slate-600">
+        {stepData.description}
+      </p>
+    </div>
+  );
+})}
+
 
         </div>
       </div>
